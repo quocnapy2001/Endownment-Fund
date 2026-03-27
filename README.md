@@ -60,10 +60,40 @@
   <img width="177" height="157" alt="image" src="https://github.com/user-attachments/assets/9fe090fd-9526-4729-8baf-3bad9f8e1b8b" />
 </p>
 
-- P1 weights are economically intuitive, allocating to high Sharpe assets (VOO, GLD) and shorting less efficient ones (VGK, IYR), with a small allocation to GBTC for its high return. This leads to higher returns and Sharpe ratio. However, it relies on leverage and short selling, increasing downside and reputational risk. In contrast, P2 provides more realistic and implementable weights, focusing on VOO and GLD while limiting exposure to high-risk assets. Although it delivers slightly lower performance than P1, it avoids leverage and short selling, making it more consistent with the fund’s constraints and long-term objectives.
+- P1 weights are economically intuitive, allocating to high Sharpe assets (VOO, GLD) and shorting less efficient ones (VGK, IYR), with a small allocation to GBTC for its high return. This leads to higher returns and Sharpe ratio. However, it relies on leverage and short selling, increasing downside and reputational risk. In contrast, P2 provides more realistic and implementable weights, focusing on VOO and GLD while limiting exposure to high-risk assets. Although it delivers slightly lower performance than P1, it avoids leverage and short selling, making it more consistent with the fund’s constraints and long-term objectives
+
+## Black-Litterman Weights:
+- Another approach to portfolio allocation is the Black–Litterman model, which incorporates investor views. Before applying the model, a prior (equilibrium) return must be derived, typically based on market capitalisation weights representing a passive portfolio. These implied returns reflect the market’s consensus: 
+
+$$
+E(r)_{\text{implied}} = \lambda \Sigma w^* + r_f
+\quad \text{where} \quad
+\lambda = \frac{E(r_M) - r_f}{\sigma_M^2}
+$$
+
+- Investor views are then used to adjust these implied returns, resulting in adjusted expected returns, which are used for portfolio optimisation:
+
+$$ E(r)_{\text{adjusted}} = E(r)_{\text{implied}} + \theta \delta $$
+
+- In practice, it is not always possible to find a vector 𝛿 that exactly reproduces the investor’s views, particularly when multiple views are imposed simultaneously. In such cases, solver in Excel is used to minimise the difference between the model-implied returns and the investor’s specified views, ensuring the best possible fit.
+Once the  $E(r)_{\text{adjusted}}$ are obtained, the Black–Litterman portfolio weights can be constructed as follows:
+
+$$ w = \frac{\Sigma^{-1}\big(E(r)_{\text{adjusted}} - r_f\big)}{\mathbf{1}^T \Sigma^{-1}\big(E(r)_{\text{adjusted}} - r_f\big)} $$
+
+- Note:
+  + $E(r)_{\text{implied}}$ is an N×1 vector of implied equilibrium returns
+  + $\lambda$ is the market risk aversion coefficient
+  + $\Sigma$ is N×N variance–covariance matrix of asset returns
+  + $w^*$ is N×1 vector of market (equilibrium) portfolio weights
+  + $r_f$ is the risk-free rate  
+  + $E(r_M)$ is the expected return of the market portfolio
+  + $\sigma_M$ is the variance of the market portfolio
+  + $E(r)_{\text{adjusted}}$ is an $N \times 1$ vector of adjusted expected returns
+  + $\delta$ is an Nx1 vector representing the adjustments  
+  + $\theta$ is an NxN matrix with elements: $$\theta_{i,j} = \frac{\mathrm{Cov}(r_i, r_j)}{\mathrm{Var}(r_j)} $$
+  + $w$ is an $N \times 1$ vector representing the portfolio weights   
+  + $\Sigma^{-1}$ is the inverse of the $N \times N$ covariance matrix
+  + $\mathbf{1}^T$ is a $1 \times N$ row vector of ones  
 
 
-
-
-
-
+## Reference:
