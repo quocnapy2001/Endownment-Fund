@@ -95,5 +95,14 @@ $$ w = \frac{\Sigma^{-1}\big(E(r)_{\text{adjusted}} - r_f\big)}{\mathbf{1}^T \Si
   + $\Sigma^{-1}$ is the inverse of the $N \times N$ covariance matrix
   + $\mathbf{1}^T$ is a $1 \times N$ row vector of ones  
 
+- Denoting the market capitalisation-weighted portfolio and the Black–Litterman portfolio as 
+P3 and  P4, respectively, the asset weight allocations for the two portfolios are as follows:
+
+<p align="center">
+  <img width="176" height="183" alt="image" src="https://github.com/user-attachments/assets/6a9288f8-eabc-4611-9a3d-c8351349aa47" />
+  <img width="177" height="183" alt="image" src="https://github.com/user-attachments/assets/73b843e8-79fc-4a60-ad96-849a12e7f1d4" />
+  <img width="111" height="183" alt="image" src="https://github.com/user-attachments/assets/ebb2e5e8-8a36-406a-b65f-d101dfc299bd" />
+</p>
+
 
 ## Reference:
