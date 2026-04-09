@@ -14,16 +14,16 @@
   + 50% VGK (European equities).
   + 30% VOO (U.S. equities).
   + 20% USO (oil exposure).
+ 
+- Data:
+  + Historical monthly return from 01/2027 to 12/2024.
+  + Risk-free rate = 0.
+  + No transaction cost.
+  + Assumed current date: 1/1/2025.
 
 ## Objective: 
 - Evaluate the performance of the current portfolio and assess whether a diversified allocation across the six ETFs can enhance returns and reduce overall portfolio risk.
 
-## Data:
-- Historical monthly retrn from 01/2027 to 12/2024.
-- Risk-free rate = 0.
-- No transaction cost.
-- Assumed current date: 1/1/2025.
-  
 ## Current Allocation Performance:
 <p align="center">
   <img width="272" height="183" alt="image" src="https://github.com/user-attachments/assets/3bd6f372-63b8-448d-97ae-fea0a3f0266d" />
@@ -62,7 +62,7 @@
 
 - P1 weights are economically intuitive, allocating to high Sharpe assets (VOO, GLD) and shorting less efficient ones (VGK, IYR), with a small allocation to GBTC for its high return. This leads to higher returns and Sharpe ratio. However, it relies on leverage and short selling, increasing downside and reputational risk. In contrast, P2 provides more realistic and implementable weights, focusing on VOO and GLD while limiting exposure to high-risk assets. Although it delivers slightly lower performance than P1, it avoids leverage and short selling, making it more consistent with the fund’s constraints and long-term objectives
 
-## Black-Litterman Weights:
+## Black-Litterman Portfolio:
 - Another approach to portfolio allocation is the Black–Litterman model, which incorporates investor views. Before applying the model, a prior (equilibrium) return must be derived, typically based on market capitalisation weights representing a passive portfolio. These implied returns reflect the market’s consensus: 
 
 $$
@@ -108,6 +108,11 @@ P3 and  P4, respectively, the asset weight allocations for the two portfolios ar
 
 - GLD sees the largest reallocation (+10.99%) despite only a modest +0.07% upward revision, as its low correlations with the rest of the portfolio (0.13–0.34 with equities, slightly negative with USO) mean the optimiser can improve risk-adjusted returns efficiently with even a small nudge to its expected return, whih is consistent with gold's real-world role as a geopolitical hedge. As the dominant market cap weight with no explicit view imposed, VOO is the path of least resistance for reallocation toward defensive assets, explaining its significant reduction of -8.54%. GBTC's weight increases only marginally (+0.15%) despite a +0.15% view, reflecting its extreme volatility and erratic correlation structure, which causes the BL framework to dampen the tilt. USO's reduction is similarly muted (−0.13pp) due to its already small initial weight, limiting further cuts, and its high correlations with VOO and VGK (0.97 and 1.20), meaning the bearish view is partially expressed indirectly through those equity reductions. IYR and VGK decline modestly as collateral rebalancing effects. Overall, compared to P3, P4 is a risk-off and hedge-tilted portfolio where the magnitude of each shift is driven not just by the views themselves, but by each asset's volatility and correlation structure, which is precisely the value BL adds over a naive return adjustment.
 
-
+## Combining Optimal Risky with Risk Free Bond:
+- Having constructed the optimal risky portfolio P2, the next idea is to build a complete portfolio P5, which combines P2 with a risk-free asset, specifically, a zero-coupon government bond. This combination is motivated by the two-fund separation theorem, which states that any investor, regardless of their risk preference, can achieve their optimal allocation by holding a combination of the single optimal risky portfolio and the risk-free asset.
+- Additionally, the zero-coupon structure guarantees a known return over the full holding period with no intermediate cash flow uncertainty, providing a clean and unambiguous risk-free rate for constructing the Capital Market Line. Incorporating the risk-free bond also introduces a capital preservation mechanism that pure equity or alternative asset portfolios cannot provide, particularly important given UE's fiduciary responsibility to protect the endowment's principal during periods of market stress.
+- Data:
+ + Bond market data as of 31/12/2024.
+ + Semi-annually 
 
 ## Reference:
