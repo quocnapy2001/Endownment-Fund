@@ -104,5 +104,9 @@ P3 and  P4, respectively, the asset weight allocations for the two portfolios ar
   <img width="111" height="183" alt="image" src="https://github.com/user-attachments/assets/ebb2e5e8-8a36-406a-b65f-d101dfc299bd" />
 </p>
 
+<img width="804" height="183" alt="image" src="https://github.com/user-attachments/assets/3b59924e-8cc6-41aa-83c7-4130345c17f4" />
+
+- GLD sees the largest reallocation (+10.99%) despite only a modest +0.07% upward revision, as its low correlations with the rest of the portfolio (0.13–0.34 with equities, slightly negative with USO) mean the optimiser can improve risk-adjusted returns efficiently with even a small nudge to its expected return, whih is consistent with gold's real-world role as a geopolitical hedge. As the dominant market cap weight with no explicit view imposed, VOO is the path of least resistance for reallocation toward defensive assets, explaining its significant reduction of -8.54%. GBTC's weight increases only marginally (+0.15%) despite a +0.15% view, reflecting its extreme volatility and erratic correlation structure, which causes the BL framework to dampen the tilt. USO's reduction is similarly muted (−0.13pp) due to its already small initial weight, limiting further cuts, and its high correlations with VOO and VGK (0.97 and 1.20), meaning the bearish view is partially expressed indirectly through those equity reductions. IYR and VGK decline modestly as collateral rebalancing effects. Overall, compared to P3, P4 is a risk-off and hedge-tilted portfolio where the magnitude of each shift is driven not just by the views themselves, but by each asset's volatility and correlation structure, which is precisely the value BL adds over a naive return adjustment.
+
 
 ## Reference:
