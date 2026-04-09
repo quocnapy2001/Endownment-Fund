@@ -112,7 +112,7 @@ P3 and  P4, respectively, the asset weight allocations for the two portfolios ar
 - Having constructed the optimal risky portfolio P2, the next idea is to build a complete portfolio P5, which combines P2 with a risk-free asset, specifically, a zero-coupon government bond. This combination is motivated by the two-fund separation theorem, which states that any investor, regardless of their risk preference, can achieve their optimal allocation by holding a combination of the single optimal risky portfolio and the risk-free asset.
 - Additionally, the zero-coupon structure guarantees a known return over the full holding period with no intermediate cash flow uncertainty, providing a clean and unambiguous risk-free rate for constructing the Capital Market Line. Incorporating the risk-free bond also introduces a capital preservation mechanism that pure equity or alternative asset portfolios cannot provide, particularly important given UE's fiduciary responsibility to protect the endowment's principal during periods of market stress.
 - Data:
- + Bond market data as of 31/12/2024.
- + Semi-annually 
+  + Bond market data as of 31/12/2024.
+  + Semi-annually.
 
 ## Reference:
